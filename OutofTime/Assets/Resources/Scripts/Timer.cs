@@ -15,6 +15,7 @@ public class Timer : MonoBehaviour
 
     [SerializeField]
     private GameObject Player;
+    CursorLockMode lockMode; 
 
     // Start is called before the first frame update
     void Start()

@@ -7,6 +7,7 @@ public class EventTrigger : MonoBehaviour
 {
 
     public bool isEndTrigger;
+    CursorLockMode lockMode;
 
     [SerializeField]
     private GameObject actor;
