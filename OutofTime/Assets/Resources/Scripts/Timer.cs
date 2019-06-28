@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
 
-    public int time;
+    public float time;
 
     [SerializeField]
-    private Text timerText;
+    private TextMeshProUGUI timerText;
 
     [SerializeField]
     private GameObject Player;
@@ -18,7 +19,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
 
-        timerText.text = time.ToString();
+        timerText.text = time.ToString("#.00");
 
         StartCoroutine(TimerWait());
 
@@ -28,7 +29,7 @@ public class Timer : MonoBehaviour
     void Update()
     {
 
-        timerText.text = time.ToString();
+        timerText.text = time.ToString("#.00");
 
         if (time == 0) {
 
@@ -42,10 +43,10 @@ public class Timer : MonoBehaviour
 
         while (time != 0) {
 
-            yield return new WaitForSecondsRealtime(1);
-            time -= 1;
+            yield return new WaitForSecondsRealtime(0.01f);
+            time -= 0.01f;
 
-            timerText.text = time.ToString();
+            timerText.text = time.ToString("#.00");
 
         }
 

@@ -306,7 +306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 406, y: 220}
+  m_AnchoredPosition: {x: 406, y: 246}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &203987923
@@ -5410,8 +5410,8 @@ GameObject:
   - component: {fileID: 1597670547}
   - component: {fileID: 1597670546}
   - component: {fileID: 1597670545}
-  - component: {fileID: 1597670544}
   - component: {fileID: 1597670548}
+  - component: {fileID: 1597670544}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -5428,10 +5428,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1597670543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639c68f2c394a03458aa834fc7b70596, type: 3}
+  m_Script: {fileID: 11500000, guid: 80c36aee6650120429ce009db1deda0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeText: {fileID: 2134567739}
+  time: 90
+  timerText: {fileID: 2134567739}
+  Player: {fileID: 0}
 --- !u!114 &1597670545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6161,7 +6163,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f33447591b733f44e8ad65bd45c8f5d3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -73.4
+      value: 1.42
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f33447591b733f44e8ad65bd45c8f5d3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6492,6 +6494,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 220}
+  m_AnchoredPosition: {x: 0, y: 246}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
