@@ -51,17 +51,17 @@ public class DialogueControl : MonoBehaviour
         {
             dialogueBox.text = intro2;
         }
-        if (Input.GetButton("Fire1") && dialogueBox.text == end1)
+        if (Input.GetButtonDown("Fire1") && dialogueBox.text == end3)
         {
-            dialogueBox.text = end2;
+            SceneManager.LoadScene(0);
         }
-        if (Input.GetButton("Fire1") && dialogueBox.text == end2)
+        if (Input.GetButtonDown("Fire1") && dialogueBox.text == end2)
         {
             dialogueBox.text = end3;
         }
-        if (Input.GetButton("Fire1") && dialogueBox.text == end3)
+        if (Input.GetButtonDown("Fire1") && dialogueBox.text == end1)
         {
-            SceneManager.LoadScene(0);
+            dialogueBox.text = end2;
         }
     }
     
