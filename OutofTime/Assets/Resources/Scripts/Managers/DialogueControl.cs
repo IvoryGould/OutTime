@@ -16,6 +16,7 @@ public class DialogueControl : MonoBehaviour
     public string end1;
     private string end2;
     private string end3;
+    CursorLockMode lockMode;
     // Start is called before the first frame update
     void Start()
     {
