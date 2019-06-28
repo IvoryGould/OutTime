@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -15,17 +16,18 @@ public class MainMenuHandler : MonoBehaviour
     // Level Sub menu
     private GameObject _mainLevelSelect, _mainLevelPreview;
 
-    // Animator switcher Vars
-    [SerializeField]
-    private Animator _animator01, _animator02, _menuID;
+    private int _menuID;
+    private bool _onSplash = true;
 
     private void Start()
     {
+        _onSplash = true;
+
         _titleScreen = GameObject.Find("TitleScreen");
 
         _mainTitle = GameObject.Find("TableTitle");
         _mainMenu = GameObject.Find("TableMainMenu");
-        _mainLeaderboard= GameObject.Find("TableLeaderboard");
+        _mainLeaderboard = GameObject.Find("TableLeaderboard");
         _mainOptions = GameObject.Find("TableOptions");
         _mainCredits = GameObject.Find("TableCredits");
         _mainLeaveGame = GameObject.Find("TableLeaveGame");
@@ -33,22 +35,27 @@ public class MainMenuHandler : MonoBehaviour
         _mainLevelSelect = GameObject.Find("TableLevelSelect");
         _mainLevelPreview = GameObject.Find("TableLevelSelect");
 
-        // Sets the Titlescreen, turns everything else off
-        _titleScreen.SetActive(true);
-        _mainTitle.SetActive(false);
-        _mainMenu.SetActive(false);
-        _mainLeaderboard.SetActive(false);
-        _mainOptions.SetActive(false);
-        _mainCredits.SetActive(false);
-        _mainLeaveGame.SetActive(false);
-        _mainLevelSelect.SetActive(false);
-        _mainLevelPreview.SetActive(false);
+        
 
         // Grabs Animator from GameObject
-        _menuID = null;
-        AnimatorSwitch(_menuID);
+        _menuID = 0;
+        HideAll();
+        _titleScreen.SetActive(true);
+        //AnimatorSwitch(_menuID);
     }
 
+    public void Update()
+    {
+        
+        if (Input.anyKey && _onSplash == true)
+        {
+            _onSplash = false;
+            HideAll();
+            _mainTitle.SetActive(true);
+            _mainMenu.SetActive(true);
+        }
+    }
+    /*
     // Animator Logic Gate + Animator
     public void AnimatorSwitch(Animator _menuAnimator)
     {
@@ -71,5 +78,69 @@ public class MainMenuHandler : MonoBehaviour
             _animator02.SetTrigger("close");
         }        
     }
+    */
 
+    public void MenuSwitch(int _menuID)
+    {
+        switch (_menuID)
+        {
+            case 0: //Title
+
+                HideAll();
+                _titleScreen.SetActive(true);
+
+                break;
+
+            case 1: // start game
+                SceneManager.LoadScene("Level01");
+                break;
+
+            case 2: // leaderboard
+                HideAll();
+                _mainMenu.SetActive(true);
+                _mainLeaderboard.SetActive(true);
+                break;
+
+            case 3: // options
+                HideAll();
+                _mainMenu.SetActive(true);
+                _mainOptions.SetActive(true);
+                break;
+
+            case 4: // credits
+                HideAll();
+                _mainMenu.SetActive(true);
+                _mainCredits.SetActive(true);
+                break;
+
+            case 5: // end game
+                Quit();
+                break;
+        }
+    }
+    public void HideAll()
+    {
+        // Sets the Titlescreen, turns everything else off
+        _titleScreen.SetActive(false);
+        _mainTitle.SetActive(false);
+        _mainMenu.SetActive(false);
+        _mainLeaderboard.SetActive(false);
+        _mainCredits.SetActive(false);
+        
+    }
+
+    public void Quit()
+    {
+        //If we are running in a standalone build of the game
+#if UNITY_STANDALONE
+        //Quit the application
+        Application.Quit();
+#endif
+
+        //If we are running in the editor
+#if UNITY_EDITOR
+        //Stop playing the scene
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }
