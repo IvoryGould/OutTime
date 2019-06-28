@@ -11,10 +11,14 @@ public class EventTrigger : MonoBehaviour
     [SerializeField]
     private GameObject actor;
 
+    public DialogueControl dialogueControl;
+
     // Start is called before the first frame update
     void Start()
     {
         
+        
+
     }
 
     // Update is called once per frame
@@ -29,7 +33,7 @@ public class EventTrigger : MonoBehaviour
         if (this.isEndTrigger)
         {
 
-            SceneManager.LoadScene(0);
+            dialogueControl.dialogueBox.text = dialogueControl.end1;
 
         }
         else {
