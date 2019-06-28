@@ -11,7 +11,7 @@ public class MainMenuHandler : MonoBehaviour
     private GameObject _titleScreen;
 
     // Main Menu Components
-    private GameObject _mainTitle, _mainMenu, _mainLeaderboard, _mainOptions, _mainCredits, _mainLeaveGame;
+    private GameObject _mainTitle, _mainMenu, _mainLeaderboard, _mainCredits;
 
     // Level Sub menu
     private GameObject _mainLevelSelect, _mainLevelPreview;
@@ -28,15 +28,8 @@ public class MainMenuHandler : MonoBehaviour
         _mainTitle = GameObject.Find("TableTitle");
         _mainMenu = GameObject.Find("TableMainMenu");
         _mainLeaderboard = GameObject.Find("TableLeaderboard");
-        _mainOptions = GameObject.Find("TableOptions");
         _mainCredits = GameObject.Find("TableCredits");
-        _mainLeaveGame = GameObject.Find("TableLeaveGame");
-
-        _mainLevelSelect = GameObject.Find("TableLevelSelect");
-        _mainLevelPreview = GameObject.Find("TableLevelSelect");
-
         
-
         // Grabs Animator from GameObject
         _menuID = 0;
         HideAll();
@@ -99,12 +92,6 @@ public class MainMenuHandler : MonoBehaviour
                 HideAll();
                 _mainMenu.SetActive(true);
                 _mainLeaderboard.SetActive(true);
-                break;
-
-            case 3: // options
-                HideAll();
-                _mainMenu.SetActive(true);
-                _mainOptions.SetActive(true);
                 break;
 
             case 4: // credits
