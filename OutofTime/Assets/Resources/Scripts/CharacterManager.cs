@@ -16,11 +16,17 @@ public class CharacterManager : MonoBehaviour
 
     private Vector3 moveDirection = Vector3.zero;
 
+    private CursorLockMode lockMode;
+
     // Start is called before the first frame update
     void Start()
     {
 
         characterController = GetComponent<CharacterController>();
+
+        //Cursor.visible = false;
+        lockMode = CursorLockMode.Locked;
+        Cursor.lockState = lockMode;
 
     }
 
