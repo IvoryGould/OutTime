@@ -35,6 +35,8 @@ public class Timer : MonoBehaviour
         if (time == 0) {
 
             SceneManager.LoadScene(0);
+            lockMode = CursorLockMode.None;
+            Cursor.lockState = lockMode;
 
         }
 

@@ -52,6 +52,8 @@ public class DialogueControl : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && dialogueBox.text == end3)
         {
             SceneManager.LoadScene(0);
+            lockMode = CursorLockMode.None;
+            Cursor.lockState = lockMode;
         }
         if (Input.GetButtonDown("Fire1") && dialogueBox.text == end2)
         {
