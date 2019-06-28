@@ -8,6 +8,9 @@ public class EventTrigger : MonoBehaviour
 
     public bool isEndTrigger;
 
+    [SerializeField]
+    private GameObject actor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,9 +26,15 @@ public class EventTrigger : MonoBehaviour
     private void OnTriggerEnter(Collider trigger)
     {
 
-        if (this.isEndTrigger) {
+        if (this.isEndTrigger)
+        {
 
             SceneManager.LoadScene(0);
+
+        }
+        else {
+
+            actor.GetComponent<Actor>().DoThing();
 
         }
 
