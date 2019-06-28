@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class KillBox : MonoBehaviour
 {
-
-    // Start is called before the first frame update
+    private CursorLockMode lockMode;
+        // Start is called before the first frame update
     void Start()
     {
         
@@ -20,5 +20,7 @@ public class KillBox : MonoBehaviour
     void OnTriggerEnter(Collider trigger)
     {
         SceneManager.LoadScene(0);
+        lockMode = CursorLockMode.None;
+        Cursor.lockState = lockMode;
     }
 }

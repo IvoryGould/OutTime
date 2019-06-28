@@ -16,8 +16,6 @@ public class DialogueControl : MonoBehaviour
     public string end1;
     private string end2;
     private string end3;
-    [SerializeField]
-    private Collider end;
     // Start is called before the first frame update
     void Start()
     {
